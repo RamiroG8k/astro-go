@@ -1,0 +1,181 @@
+{
+	// Biome documentation link: https://biomejs.dev/linter/rules/
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"clientKind": "git",
+		"enabled": false,
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"./dist",
+			"./node_modules",
+			"./public"
+		]
+	},
+	"formatter": {
+		"attributePosition": "auto",
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 100
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noExcessiveCognitiveComplexity": "error",
+				"noStaticOnlyClass": "error",
+				"noUselessStringConcat": "error",
+				"noUselessSwitchCase": "error",
+				"noUselessUndefinedInitialization": "error",
+				"noVoid": "error",
+				"useDateNow": "error",
+				"useFlatMap": "error",
+				"useSimplifiedLogicExpression": "error"
+			},
+			"correctness": {
+				"noNodejsModules": "warn", // Warn against using Node.js builtin modules
+				"noUndeclaredDependencies": "error",
+				"noUndeclaredVariables": "error",
+				"noUnusedFunctionParameters": "error",
+				"noUnusedImports": "off",
+				"noUnusedPrivateClassMembers": "error",
+				"noUnusedVariables": "error",
+				"useArrayLiterals": "off",
+				"useIsNan": "error"
+			},
+			"style": {
+				"noArguments": "error",
+				"noCommaOperator": "error",
+				"noDefaultExport": "error",
+				"noDoneCallback": "error",
+				"noNamespace": "error",
+				"noNamespaceImport": "warn",
+				"noNegationElse": "error",
+				"noParameterAssign": "error",
+				"noParameterProperties": "warn",
+				"noRestrictedGlobals": "warn",
+				"noShoutyConstants": "error",
+				"noUnusedTemplateLiteral": "error",
+				"noUselessElse": "error",
+				"noYodaExpression": "error",
+				"useAsConstAssertion": "info",
+				"useBlockStatements": "error",
+				"useCollapsedElseIf": "error",
+				"useConsistentArrayType": {
+					"fix": "safe",
+					"level": "error",
+					"options": {
+						"syntax": "shorthand"
+					}
+				},
+				"useConsistentBuiltinInstantiation": "error",
+				"useConst": "error",
+				"useDefaultParameterLast": "error",
+				"useDefaultSwitchClause": "error",
+				"useEnumInitializers": "error",
+				"useExplicitLengthCheck": "error",
+				"useExponentiationOperator": "error",
+				"useExportType": "error",
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {
+						"strictCase": true,
+						"requireAscii": true,
+						"filenameCases": [
+							"camelCase",
+							"PascalCase",
+							"export"
+						]
+					}
+				},
+				"useForOf": "warn",
+				"useFragmentSyntax": "error",
+				"useImportType": "info",
+				"useLiteralEnumMembers": "error",
+				"useNamingConvention": "error",
+				"useNodejsImportProtocol": "error",
+				"useNumberNamespace": "error",
+				"useSelfClosingElements": "error",
+				"useShorthandAssign": "error",
+				"useShorthandFunctionType": "error",
+				"useSingleVarDeclarator": "error",
+				"useTemplate": "error",
+				"useThrowNewError": "warn",
+				"useThrowOnlyError": "info"
+			},
+			"suspicious": {
+				"noConsole": "error",
+				"noDoubleEquals": "error",
+				"noDuplicateClassMembers": "error",
+				"noEmptyBlockStatements": "warn",
+				"noEvolvingTypes": "error",
+				"noExplicitAny": "warn",
+				"noMisplacedAssertion": "error", // Prevents misplacing assertion functions outside of test blocks
+				"noSkippedTests": "warn",
+				"noThenProperty": "error",
+				"useAwait": "error",
+				"useErrorMessage": "info",
+				"useIsArray": "error",
+				"useNumberToFixedDigitsArgument": "error" // Enforce providing digits argument in toFixed()
+			},
+			"nursery": {
+				"noCommonJs": "warn",
+				"noDuplicateElseIf": "error",
+				"noDynamicNamespaceImportAccess": "warn",
+				"noExportedImports": "warn",
+				"noIrregularWhitespace": "error",
+				"noNestedTernary": "error",
+				"noProcessEnv": "warn",
+				"noSecrets": "error", // Disallow usage of sensitive data such as API keys and tokens
+				"noStaticElementInteractions": "error", // Enforce valid role attribute for static elements with click handlers
+				"noTemplateCurlyInString": "error",
+				"noUselessEscapeInRegex": "error",
+				"useAriaPropsSupportedByRole": "error", // Enforce valid ARIA properties for supported roles
+				"useAtIndex": "warn", // Prefer using array.at() method over direct index access
+				"useCollapsedIf": "error",
+				"useConsistentCurlyBraces": "error" // Enforce consistent use of curly braces in JSX attributes and children
+			},
+			"performance": {
+				"noBarrelFile": "error",
+				"noReExportAll": "error",
+				"useTopLevelRegex": "warn" // Require regex literals to be declared at the top level
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"attributePosition": "auto",
+			"indentStyle": "tab",
+			"indentWidth": 2,
+			"jsxQuoteStyle": "double",
+			"lineEnding": "lf",
+			"lineWidth": 100,
+			"quoteStyle": "single",
+			"semicolons": "always",
+			"trailingCommas": "none"
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": false,
+			"allowTrailingCommas": false
+		},
+		"formatter": {
+			"indentStyle": "tab",
+			"indentWidth": 2,
+			"lineEnding": "lf",
+			"lineWidth": 100,
+			"trailingCommas": "none"
+		}
+	}
+}
