@@ -5,7 +5,9 @@
 */
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
+import { config } from './src/lib/seo/config';
 
 // NOTE: The below config options cover all available top-level settings and build options in Astro.
 // You can uncomment and modify any of these to suit your project needs.
@@ -15,7 +17,7 @@ export default defineConfig({
         svg: true,
     },
     // The full URL of your deployed site. Astro uses this for sitemaps and canonical URLs.
-    site: 'https://www.my-site.dev',
+    site: config.baseURL,
 
     // The base path to deploy to. All static asset URLs will be prefixed with this value.
     // base: '/',
@@ -48,6 +50,7 @@ export default defineConfig({
     integrations: [
         mdx(), // Add support for MDX
         sitemap(), // Generate a sitemap
+        compress()
         // Add other integrations here
     ],
 

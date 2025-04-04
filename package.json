@@ -11,13 +11,16 @@
     "check:all": "biome check --write ./src",
     "build:production": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "favicon:local": "npx realfavicon check 4321 -s cli -w"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.0",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.5.2",
+    "@astrojs/mdx": "^4.2.3",
+    "@astrojs/sitemap": "^3.3.0",
+    "astro": "^5.5.6",
+    "astro-compress": "^2.3.7",
+    "astro-seo": "^0.8.4",
     "typescript": "^5.8.2"
   },
   "devDependencies": {

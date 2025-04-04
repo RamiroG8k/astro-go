@@ -1,0 +1,16 @@
+/* TEAM */
+
+Astro PWA: G8k.
+Twitter: your Twitter username.
+Location: Guadalajara, Mexico.
+
+
+/* THANKS */
+
+g8k.dev
+
+
+/* SITE */
+
+Last update: 04/03/2025
+Standards: HTML5, CSS3, JavaScript
