@@ -1,4 +1,5 @@
 ---
+import { pwaInfo } from 'virtual:pwa-info';
 import { SEO } from 'astro-seo';
 
 import { config as seoConfig } from '../lib/seo/config';
@@ -24,6 +25,7 @@ const {
 		<meta name="generator" content={Astro.generator} />
 
 		<!-- SEO meta tags. -->
+		<meta name="apple-mobile-web-app-title" content={title}>
 		<SEO
 			title={title}
 			description={description}
@@ -55,7 +57,15 @@ const {
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+
+		<!-- Service worker registration. -->
+		<script is:inline src="/registerSW.js"></script>
+		<link rel="manifest" href="/manifest.webmanifest" />
+
+        <script src="/src/pwa.ts" />
+        {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 	</head>
+
 	<body>
 		<slot />
 	</body>

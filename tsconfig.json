@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "types": ["astro/client", "vite-plugin-pwa/client", "vite-plugin-pwa/info"]
+  },
 	"extends": "astro/tsconfigs/strict",
 	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["dist"]

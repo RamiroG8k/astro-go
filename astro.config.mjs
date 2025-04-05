@@ -6,6 +6,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
+import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
 import { config } from './src/lib/seo/config';
 
@@ -50,7 +51,43 @@ export default defineConfig({
     integrations: [
         mdx(), // Add support for MDX
         sitemap(), // Generate a sitemap
-        compress()
+        compress(),
+        AstroPWA({
+          base: './',
+          registerType: 'autoUpdate',
+          devOptions: {
+            enabled: true,
+          },
+          workbox: {
+            globDirectory: 'dist',
+            globPatterns: ['**/*.{js,css,html,svg,png,jpg,jpeg,webp,ttf,ico}'],
+            cleanupOutdatedCaches: true,
+            navigateFallback: '/404'
+          },
+          includeAssets: ['favicon.svg', 'robots.txt'],
+          manifest: {
+            name: config.siteName,
+           	short_name: config.siteName.split(' ').at(0),
+           	description: config.description,
+           	icons: [
+          		{
+                src: '/favicon/web-app-manifest-192x192.png',
+                sizes: '192x192',
+                type: 'image/png',
+                purpose: 'maskable'
+              },
+              {
+                src: '/favicon/web-app-manifest-512x512.png',
+                sizes: '512x512',
+                type: 'image/png',
+                purpose: 'maskable'
+              }
+           	],
+            orientation: 'portrait',
+            display: 'standalone',
+           	theme_color: '#e9e2ff',
+          }
+        }),
         // Add other integrations here
     ],
 
