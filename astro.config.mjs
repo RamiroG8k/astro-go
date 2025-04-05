@@ -7,6 +7,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
+import AstroPWA from '@vite-pwa/astro';
 import { config } from './src/lib/seo/config';
 
 // NOTE: The below config options cover all available top-level settings and build options in Astro.
@@ -50,7 +51,46 @@ export default defineConfig({
     integrations: [
         mdx(), // Add support for MDX
         sitemap(), // Generate a sitemap
-        compress()
+        compress(),
+        AstroPWA({
+          base: './',
+          registerType: 'autoUpdate',
+          devOptions: {
+            enabled: true,
+          },
+          injectRegister: 'auto',
+          workbox: {
+            globDirectory: 'dist',
+            globPatterns: [
+  				    '**/*.{js,css,html,svg,png,jpg,jpeg,gif,webp,ttf,ico}',
+  				  ],
+            navigateFallback: '/404'
+          },
+          includeAssets: ['favicon.ico', 'robots.txt'],
+          manifest: {
+            name: 'Astro PWA Starter',
+           	short_name: 'Astro',
+           	description: 'Astro PWA Starter is an opinionated Astro starter for building robust static websites.',
+           	icons: [
+          		{
+           			src: '/favicon/web-app-manifest-192x192.png',
+           			sizes: '192x192',
+           			type: 'image/png'
+          		},
+          		{
+           			src: '/favicon/web-app-manifest-512x512.png',
+           			sizes: '512x512',
+           			type: 'image/png'
+          		},
+          		{
+           			src: '/favicon/web-app-manifest-512x512.png',
+           			sizes: '512x512',
+           			type: 'image/png',
+           			purpose: 'any maskable'
+          		}
+           	]
+          }
+        }),
         // Add other integrations here
     ],
 

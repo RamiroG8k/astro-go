@@ -10,7 +10,7 @@
     "lint:fix": "biome lint --write ./src",
     "check:all": "biome check --write ./src",
     "build:production": "astro build",
-    "preview": "astro preview",
+    "preview:production": "astro build && astro preview",
     "astro": "astro",
     "favicon:local": "npx realfavicon check 4321 -s cli -w"
   },
@@ -24,6 +24,8 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "1.9.4",
+    "@vite-pwa/astro": "^1.0.0",
+    "vite-plugin-pwa": "^1.0.0"
   }
 }
