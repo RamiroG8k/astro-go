@@ -3,27 +3,26 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "start:local": "astro dev",
-    "format:all": "biome format --write ./src",
+    "start:local": "astro sync && astro dev --host",
     "health:check": "astro check && astro info",
+    "format:all": "biome format --write ./src",
     "lint:all": "biome lint ./src",
     "lint:fix": "biome lint --write ./src",
     "check:all": "biome check --write ./src",
-    "build:production": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "favicon:local": "npx realfavicon check 4321 -s cli -w"
+    "build:production": "astro check && astro build",
+    "preview:production": "astro build && astro preview",
+    "favicon:check": "npx realfavicon check 4321 -s cli -w"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.3",
-    "@astrojs/sitemap": "^3.3.0",
-    "astro": "^5.5.6",
-    "astro-compress": "^2.3.7",
+    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/sitemap": "^3.4.2",
+    "astro": "^5.12.8",
+    "astro-compress": "^2.3.8",
     "astro-seo": "^0.8.4",
-    "typescript": "^5.8.2"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "2.0.4"
   }
 }
