@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Text from '@/components/atoms/Text.astro';
+import { Stack } from '@/components/atoms/Stack/index.astro';
+
+export async function getStaticPaths() {
+	const allProjects = await getCollection('projects');
+
+	return allProjects.map(project => ({
+		params: { slug: project.data.slug },
+		props: { project }
+	}));
+}
+
+const { project } = Astro.props;
+--- 
+
+<Layout title={project.data.title} description={project.data.description}>
+    <Stack.Column as="main">
+        <Text as="h1" transition:name={project.data.title}>{project.data.title}</Text>
+        <Text>{project.data.description}</Text>
+    </Stack.Column>
+</Layout>
+
+<style>
+	main {
+       	max-width: 1280px;
+       	margin: 0 auto;
+	}
+</style>

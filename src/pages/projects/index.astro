@@ -1,0 +1,31 @@
+---
+import Link from '@/components/atoms/Link.astro';
+import Text from '@/components/atoms/Text.astro';
+import Layout from '@/layouts/Layout.astro';
+import { Stack } from '@/components/atoms/Stack/index.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+---
+
+<Layout>
+    <Stack.Column as="main" align="center" justify="center">
+        <Text as="h1" transition:name="projects-navigation">Projects</Text>
+
+        <ul>
+          {allProjects.map(project => (
+              <li>
+                  <Link href={`/projects/${project.id}`} transition:name={project.data.title}>
+                      {project.data.title}
+                  </Link>
+              </li>
+          ))}
+        </ul>
+    </Stack.Column>
+</Layout>
+
+<style>
+    main {
+        height: 100vh;
+    }
+</style>
