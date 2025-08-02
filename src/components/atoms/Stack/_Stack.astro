@@ -1,0 +1,72 @@
+---
+import type { Polymorphic } from 'astro/types';
+
+type StackContainerTags =
+  | 'div'
+  | 'main'
+  | 'section'
+  | 'article'
+  | 'header'
+  | 'footer'
+  | 'nav'
+  | 'aside'
+  | 'form'
+  | 'ul'
+  | 'ol';
+
+type SpaceToken = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+export interface Props {
+  as?: StackContainerTags;
+  direction: 'column' | 'row';
+  gap?: SpaceToken;
+  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
+  align?: 'start' | 'center' | 'end' | 'stretch';
+}
+
+type ComponentProps<Tag extends StackContainerTags = 'div'> = Polymorphic<{ as: Tag }> & Props;
+
+const {
+  as: Element = 'div',
+  direction,
+  gap,
+  justify,
+  align,
+  ...attrs
+} = Astro.props as ComponentProps;
+---
+
+<Element
+  data-direction={direction}
+  data-gap={gap}
+  data-justify={justify}
+  data-align={align}
+  {...attrs}
+>
+  <slot />
+</Element>
+
+<style>
+    [data-direction] { display: flex; }
+    
+    [data-direction="column"] { flex-direction: column; }
+    [data-direction="row"] { flex-direction: row; }
+    
+    [data-justify="start"] { justify-content: flex-start; }
+    [data-justify="center"] { justify-content: center; }
+    [data-justify="end"] { justify-content: flex-end; }
+    [data-justify="space-between"] { justify-content: space-between; }
+    [data-justify="space-around"] { justify-content: space-around; }
+    
+    [data-align="start"] { align-items: flex-start; }
+    [data-align="center"] { align-items: center; }
+    [data-align="end"] { align-items: flex-end; }
+    [data-align="stretch"] { align-items: stretch; }
+    
+    [data-gap="xs"] { gap: var(--space-xs); }
+    [data-gap="sm"] { gap: var(--space-sm); }
+    [data-gap="md"] { gap: var(--space-md); }
+    [data-gap="lg"] { gap: var(--space-lg); }
+    [data-gap="xl"] { gap: var(--space-xl); }
+    [data-gap="2xl"] { gap: var(--space-2xl); }
+</style>

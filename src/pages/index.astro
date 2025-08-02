@@ -1,8 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Link from '@/components/atoms/Link.astro';
+import { Stack } from '@/components/atoms/Stack/index.astro';
+import Text from '@/components/atoms/Text.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+    <Stack.Column as="main" align="center" justify="center">
+        <Text as="h1">G8k</Text>
+
+        <hr />
+        
+        <Link transition:name="projects-navigation" to="/projects">
+            Projects
+        </Link>
+    </Stack.Column>
 </Layout>
+
+<style>
+    main {
+        height: 100vh;
+    }
+    
+    hr {
+        margin: 2rem 0;
+        width: 4rem;
+    }
+</style>

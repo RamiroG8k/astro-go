@@ -13,7 +13,7 @@ import '../styles/index.css';
     <Head {...Astro.props} />
 
 	<body>
-	    <img id="background" src={background.src} alt="" fetchpriority="high" />
+	    <img transition:persist transition:name="background" id="background" src={background.src} fetchpriority="high" />
 
 		<slot />
 	</body>
@@ -34,12 +34,11 @@ import '../styles/index.css';
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		/*z-index: -1;*/
+		z-index: 0;
 		animation: ease-in-out customAnimation 30s infinite;
 		pointer-events: none;
 		user-select: none;
 	}
-	
 	
 	@keyframes customAnimation {
 		0% {

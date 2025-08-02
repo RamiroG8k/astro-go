@@ -14,9 +14,11 @@ const { as: Element = 'p', ...attrs } = Astro.props;
 
 <style>
     [data-as] {
-        font-family: var(--font-rethink);
         color: var(--color-content);
+        font-family: var(--font-rethink);
         line-height: var(--line-height-normal);
+        margin: unset;
+        width: fit-content;
     }
     
     [data-as="h1"] {

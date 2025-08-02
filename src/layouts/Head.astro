@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import { SEO } from 'astro-seo';
 import { config as seoConfig } from '../lib/seo/config';
 
@@ -10,7 +11,9 @@ const {
 } = Astro.props;
 ---
 
+
 <head>
+    <ClientRouter fallback="swap"/>
    	<!-- Global meta tags. -->
    	<meta charset="utf-8" />
    	<meta name="viewport" content="width=device-width, initial-scale=1" />

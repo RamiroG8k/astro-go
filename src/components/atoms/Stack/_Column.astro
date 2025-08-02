@@ -1,0 +1,9 @@
+---
+import Stack, { type Props as StackProps } from './_Stack.astro';
+export type Props = Omit<StackProps, 'direction'>;
+const { ...attrs } = Astro.props;
+---
+
+<Stack direction="column" {...attrs}>
+    <slot />
+</Stack>
