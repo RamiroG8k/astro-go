@@ -5,14 +5,20 @@
  */
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import compress from "astro-compress";
 import { config } from "./src/lib/seo/config";
 
 // NOTE: The below config options cover all available top-level settings and build options in Astro.
 // You can uncomment and modify any of these to suit your project needs.
 export default defineConfig({
-  experimental: {},
+  experimental: {
+    fonts: [{
+      provider: fontProviders.google(),
+      name: 'Rethink Sans',
+      cssVariable: '--font-rethink'
+    }]
+  },
   // The full URL of your deployed site. Astro uses this for sitemaps and canonical URLs.
   site: config.baseURL,
 

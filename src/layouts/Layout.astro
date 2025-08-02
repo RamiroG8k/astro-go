@@ -1,62 +1,16 @@
 ---
-import { SEO } from 'astro-seo';
-
+import { Font } from 'astro:assets';
 import background from '../assets/background.svg';
-import { config as seoConfig } from '../lib/seo/config';
+import Head from './Head.astro';
 
-const {
-	title = seoConfig.siteName,
-	description = seoConfig.description,
-	image = seoConfig.image,
-	disableIndexing = false
-} = Astro.props;
+import '../styles/index.css';
 ---
+
+<Font cssVariable="--font-rethink" preload />
 
 <!doctype html>
 <html lang="en">
-	<head>
-       	<!-- Global meta tags. -->
-       	<meta charset="utf-8" />
-       	<meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#E6E6E6" media="(prefers-color-scheme: light)">
-        <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
-
-       	<!-- Astro meta tags. -->
-		<meta name="generator" content={Astro.generator} />
-
-		<!-- SEO meta tags. -->
-		<SEO
-			title={title}
-			description={description}
-			noindex={disableIndexing}
-			nofollow={disableIndexing}
-			openGraph={{
-				basic: {
-					image: image.url,
-					title,
-					type: 'website'
-				},
-				image: {
-					alt: image.alt,
-					height: image.height,
-					width: image.width,
-				},
-				optional: {
-					description,
-					siteName: title
-				}
-			}}
-			twitter={{
-				card: seoConfig.twitter.card
-			}}
-		/>
-
-		<!-- Favicons. -->
-        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-	</head>
+    <Head {...Astro.props} />
 
 	<body>
 	    <img id="background" src={background.src} alt="" fetchpriority="high" />
@@ -68,14 +22,11 @@ const {
 <style>
 	html,
 	body {
+        background-color: var(--color-background);
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-	}
-	
-	:root {
-	    --filter: blur(100px);
+		font-family: var(--font-rethink);
 	}
 	
 	#background {
@@ -83,23 +34,26 @@ const {
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		z-index: -1;
+		/*z-index: -1;*/
 		animation: ease-in-out customAnimation 30s infinite;
+		pointer-events: none;
+		user-select: none;
 	}
+	
 	
 	@keyframes customAnimation {
 		0% {
 			transform: rotate(0deg) scale(1.25);
-			filter: var(--filter) hue-rotate(0deg);
+			filter: var(--filter-blur-max) hue-rotate(0deg);
 			
 		}
 		50% {
             transform: rotate(180deg) scale(2);
-            filter: var(--filter) hue-rotate(180deg);
+            filter: var(--filter-blur-max) hue-rotate(180deg);
 		}
 		100% {
 		    transform: rotate(360deg) scale(1.25);
-			filter: var(--filter) hue-rotate(360deg);
+			filter: var(--filter-blur-max) hue-rotate(360deg);
 		}
 	}
 </style>
