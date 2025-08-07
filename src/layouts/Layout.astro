@@ -4,55 +4,73 @@ import background from '../assets/background.svg';
 import Head from './Head.astro';
 
 import '../styles/index.css';
+import Breadcrumb from '@/components/atoms/molecules/breadcrumb.astro';
 ---
 
 <Font cssVariable="--font-rethink" preload />
 
 <!doctype html>
 <html lang="en">
-    <Head {...Astro.props} />
+    <Head {...Astro.props}>
+        <style>
+           	html,
+           	body {
+                            background-color: var(--color-background);
+          		margin: 0;
+          		width: 100%;
+          		height: 100%;
+          		font-family: var(--font-rethink);
+           	}
+           	
+           	#breadcrumb {
+          		position: sticky;
+          		top: var(--space-md);
+          		width: fit-content;
+          		z-index: 1;
+                            margin: var(--space-md) auto;
+           	}
+           	
+           	#background {
+          		position: fixed;
+          		inset: 0;
+          		width: 100%;
+          		height: 100%;
+          		z-index: 0;
+          		animation: ease-in-out customAnimation 30s infinite;
+          		pointer-events: none;
+          		user-select: none;
+           	}
+           	
+           	@keyframes customAnimation {
+          		0% {
+         			transform: rotate(0deg) scale(1.25);
+         			filter: var(--filter-blur-max) hue-rotate(0deg);
+         			
+          		}
+          		50% {
+                                transform: rotate(180deg) scale(2);
+                                filter: var(--filter-blur-max) hue-rotate(180deg);
+          		}
+          		100% {
+          		    transform: rotate(360deg) scale(1.25);
+         			filter: var(--filter-blur-max) hue-rotate(360deg);
+          		}
+           	}
+        </style>
+    </Head>
 
 	<body>
-	    <img transition:persist transition:name="background" id="background" src={background.src} fetchpriority="high" />
+	    <img 
+			aria-hidden="true"
+			fetchpriority="high"
+			id="background"
+			src={background.src}
+			transition:name="background"
+			transition:persist
+		/>
 
+		<Breadcrumb id="breadcrumb" />
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-        background-color: var(--color-background);
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		font-family: var(--font-rethink);
-	}
-	
-	#background {
-		position: fixed;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 0;
-		animation: ease-in-out customAnimation 30s infinite;
-		pointer-events: none;
-		user-select: none;
-	}
-	
-	@keyframes customAnimation {
-		0% {
-			transform: rotate(0deg) scale(1.25);
-			filter: var(--filter-blur-max) hue-rotate(0deg);
-			
-		}
-		50% {
-            transform: rotate(180deg) scale(2);
-            filter: var(--filter-blur-max) hue-rotate(180deg);
-		}
-		100% {
-		    transform: rotate(360deg) scale(1.25);
-			filter: var(--filter-blur-max) hue-rotate(360deg);
-		}
-	}
-</style>

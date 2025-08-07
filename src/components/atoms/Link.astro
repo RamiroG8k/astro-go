@@ -27,10 +27,8 @@ const {
   ...attrs
 } = Astro.props as ComponentProps;
 
-// Determine the final URL and check if it's an external link
 const finalHref = to || href;
 const isExternal = href?.startsWith('http');
-
 
 if (!finalHref) {
   throw new Error('[Link] requires either a `to` or `href` prop.');
@@ -71,6 +69,6 @@ if (to && href) {
   }
 
   [data-variant="subtle"]:hover {
-    color: var(--color-subtle);
+    color: var(--color-content);
   }
 </style>

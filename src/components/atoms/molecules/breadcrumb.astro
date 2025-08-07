@@ -1,0 +1,65 @@
+---
+import Link from '../Link.astro';
+import { Stack } from '../Stack/index.astro';
+import Text from '../Text.astro';
+
+const { ...attrs } = Astro.props;
+
+const PATHNAME = Astro.url.pathname.replace(/\/$/, '');
+
+const items = PATHNAME.split('/').map(segment => ({
+    label: segment.trim() || 'Home',
+    href: PATHNAME.split(segment).at(0)?.concat(segment)
+}));
+
+if (items.length <= 1) {
+  return null;
+}
+---
+
+<Stack as="nav" aria-label="breadcrumb" {...attrs}>
+    <Stack.Row as="ol" class:list={["breadcrumb-list"]} align="center">
+        {items.map((item, index) => {
+            const isLastItem = index === items.length - 1;
+        
+            return (
+                <li class="breadcrumb-item" data-current={isLastItem ? 'true' : 'false'}>
+                    {isLastItem ? (
+                        <Text as="span" aria-current="page">{item.label}</Text>
+                    ) : (
+                        <Link to={item.href} variant="subtle">{item.label}</Link>
+                    )}
+                </li>
+            )
+        })}
+    </Stack.Row>
+</Stack>
+
+<style>
+    nav {
+        background-color: hsla(var(--hsl-background), 0.4);
+    	padding: var(--space-xs) var(--space-md);
+    	backdrop-filter: blur(10px) saturate(180%);
+    	border: 1px solid hsla(var(--hsl-content), 0.1);
+        border-radius: 2rem;
+        box-shadow: 0 8px 32px hsla(var(--hsl-content), 0.1), 
+                    inset 0 4px 20px hsla(var(--hsl-background), 0.3);
+    }
+    
+    ol.breadcrumb-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    li.breadcrumb-item {
+        text-transform: capitalize;
+        
+        &:not(:first-child)::before {
+            content: '/';
+            margin-inline: var(--space-sm);
+            color: var(--color-subtle);
+            user-select: none;
+        }
+    }
+</style>
