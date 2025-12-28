@@ -1,6 +1,5 @@
 {
-  // Biome documentation link: https://biomejs.dev/linter/rules/
-  "$schema": "https://biomejs.dev/schemas/2.0.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
   "vcs": {
     "clientKind": "git",
     "enabled": false,
@@ -39,7 +38,7 @@
         "noUselessEscapeInRegex": "error"
       },
       "correctness": {
-        "noNodejsModules": "warn", // Warn against using Node.js builtin modules
+        "noNodejsModules": "warn",
         "noUndeclaredDependencies": "error",
         "noUndeclaredVariables": "error",
         "noUnusedFunctionParameters": "error",
@@ -108,7 +107,7 @@
         "noProcessEnv": "warn",
         "useAtIndex": "warn",
         "useCollapsedIf": "error",
-        "useConsistentCurlyBraces": "error" // Enforce consistent use of curly braces in JSX attributes and children
+        "useConsistentCurlyBraces": "error"
       },
       "suspicious": {
         "noConsole": "error",
@@ -117,30 +116,31 @@
         "noEmptyBlockStatements": "warn",
         "noEvolvingTypes": "error",
         "noExplicitAny": "warn",
-        "noMisplacedAssertion": "error", // Prevents misplacing assertion functions outside of test blocks
+        "noMisplacedAssertion": "error",
         "noSkippedTests": "warn",
         "noThenProperty": "error",
         "useAwait": "error",
         "useErrorMessage": "info",
         "useIsArray": "error",
-        "useNumberToFixedDigitsArgument": "error", // Enforce providing digits argument in toFixed(),
+        "useNumberToFixedDigitsArgument": "error",
         "noDuplicateElseIf": "error",
         "noIrregularWhitespace": "error",
         "noTemplateCurlyInString": "error"
       },
-      "nursery": {
-        "noSecrets": "error" // Disallow usage of sensitive data such as API keys and tokens
-      },
+      "nursery": {},
       "performance": {
         "noBarrelFile": "error",
         "noReExportAll": "error",
-        "useTopLevelRegex": "warn", // Require regex literals to be declared at the top level,
+        "useTopLevelRegex": "warn",
         "noNamespaceImport": "warn",
         "noDynamicNamespaceImportAccess": "warn"
       },
       "a11y": {
         "noStaticElementInteractions": "error",
         "useAriaPropsSupportedByRole": "error"
+      },
+      "security": {
+        "noSecrets": "error"
       }
     }
   },
