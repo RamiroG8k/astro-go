@@ -13,11 +13,25 @@ import { config } from "./src/lib/seo/config";
 // You can uncomment and modify any of these to suit your project needs.
 export default defineConfig({
   experimental: {
-    fonts: [{
-      provider: fontProviders.google(),
-      name: 'Rethink Sans',
-      cssVariable: '--font-rethink'
-    }]
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: "Rethink Sans",
+        cssVariable: "--font-rethink",
+      },
+      {
+        provider: "local",
+        name: "Bestime",
+        cssVariable: "--font-bestime",
+        variants: [
+          {
+            style: "normal",
+            weight: "900",
+            src: ["./src/assets/fonts/Bestime.otf"],
+          },
+        ],
+      },
+    ],
   },
   // The full URL of your deployed site. Astro uses this for sitemaps and canonical URLs.
   site: config.baseURL,
