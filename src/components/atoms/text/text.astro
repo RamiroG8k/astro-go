@@ -1,0 +1,15 @@
+---
+import type { ValidTag } from './types';
+
+interface Props {
+    as?: ValidTag;
+}
+
+const { as: Element } = Astro.props;
+---
+
+<Element {...Astro.props}>
+    <slot>
+        Fallback content for text (Please place some content)
+    </slot>
+</Element>
