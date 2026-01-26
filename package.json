@@ -1,0 +1,17 @@
+{
+  "name": "astro-go",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "start:local": "astro dev --host",
+    "start:prod": "astro build && astro preview --host",
+    "health:check": "astro check && astro info --copy"
+  },
+  "dependencies": {
+    "astro": "^5.16.15"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "typescript": "^5.9.3"
+  }
+}
