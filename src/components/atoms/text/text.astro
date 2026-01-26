@@ -8,8 +8,74 @@ interface Props {
 const { as: Element } = Astro.props;
 ---
 
-<Element {...Astro.props}>
+<Element data-atom="text" {...Astro.props}>
     <slot>
         Fallback content for text (Please place some content)
     </slot>
 </Element>
+
+<style>
+    [data-atom="text"] {
+        color: var(--color-gray-900);
+    }
+
+    /* Structural headings and interface text */
+    h1, h2, h3, h4, h5, h6,
+    label, button, figcaption, summary {
+        font-family: var(--font-family-sans);
+    }
+
+    /* Narrative content and inline formatting */
+    p, span, em, strong, blockquote,
+    li, dt, dd, q, cite, abbr, dfn,
+    address, small, ins, del, s, sub, sup {
+        font-family: var(--font-family-serif);
+    }
+
+    /* Technical, code, and input text */
+    code, pre, kbd, samp, var, data, output {
+        font-family: var(--font-family-mono);
+    }
+
+    h1 {
+        font-size: var(--heading-size-1);
+        font-weight: var(--heading-font-weight-1);
+        line-height: var(--heading-line-height-1);
+    }
+
+    h2 {
+        font-size: var(--heading-size-2);
+        font-weight: var(--heading-font-weight-2);
+        line-height: var(--heading-line-height-2);
+    }
+
+    h3 {
+        font-size: var(--heading-size-3);
+        font-weight: var(--heading-font-weight-3);
+        line-height: var(--heading-line-height-3);
+    }
+
+    h4 {
+        font-size: var(--heading-size-4);
+        font-weight: var(--heading-font-weight-4);
+        line-height: var(--heading-line-height-4);
+    }
+
+    h5 {
+        font-size: var(--heading-size-5);
+        font-weight: var(--heading-font-weight-5);
+        line-height: var(--heading-line-height-5);
+    }
+
+    h6 {
+        font-size: var(--heading-size-6);
+        font-weight: var(--heading-font-weight-6);
+        line-height: var(--heading-line-height-6);
+    }
+
+    p {
+        font-size: var(--body-text-size);
+        font-weight: var(--body-text-font-weight);
+        line-height: var(--body-text-line-height);
+    }
+</style>

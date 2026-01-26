@@ -1,0 +1,103 @@
+:root {
+  /* Font Families */
+  --font-family-sans:
+    var(--font-clash-display), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif: var(--font-roboto), Georgia, serif;
+  --font-family-mono:
+    var(--font-custom), "SF Mono", Monaco, Inconsolata, "Roboto Mono",
+    "Source Code Pro", monospace;
+
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Font Sizes - Modular Scale */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 3.75rem; /* 60px */
+  --font-size-7xl: 4.5rem; /* 72px */
+  --font-size-8xl: 6rem; /* 96px */
+  --font-size-9xl: 8rem; /* 128px */
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* Text Sizes - Semantic mappings */
+  --text-size-xs: var(--font-size-xs);
+  --text-size-sm: var(--font-size-sm);
+  --text-size-base: var(--font-size-base);
+  --text-size-lg: var(--font-size-lg);
+  --text-size-xl: var(--font-size-xl);
+  --text-size-2xl: var(--font-size-2xl);
+  --text-size-3xl: var(--font-size-3xl);
+  --text-size-4xl: var(--font-size-4xl);
+  --text-size-5xl: var(--font-size-5xl);
+  --text-size-6xl: var(--font-size-6xl);
+
+  /* Heading Sizes */
+  --heading-size-1: var(--font-size-6xl);
+  --heading-size-2: var(--font-size-5xl);
+  --heading-size-3: var(--font-size-4xl);
+  --heading-size-4: var(--font-size-3xl);
+  --heading-size-5: var(--font-size-2xl);
+  --heading-size-6: var(--font-size-xl);
+
+  /* Heading Line Heights */
+  --heading-line-height-1: var(--line-height-tight);
+  --heading-line-height-2: var(--line-height-tight);
+  --heading-line-height-3: var(--line-height-tight);
+  --heading-line-height-4: var(--line-height-snug);
+  --heading-line-height-5: var(--line-height-normal);
+  --heading-line-height-6: var(--line-height-normal);
+
+  /* Heading Font Weights */
+  --heading-font-weight-1: var(--font-weight-bold);
+  --heading-font-weight-2: var(--font-weight-bold);
+  --heading-font-weight-3: var(--font-weight-semibold);
+  --heading-font-weight-4: var(--font-weight-semibold);
+  --heading-font-weight-5: var(--font-weight-medium);
+  --heading-font-weight-6: var(--font-weight-medium);
+
+  /* Body Text */
+  --body-text-size: var(--font-size-base);
+  --body-text-line-height: var(--line-height-normal);
+  --body-text-font-weight: var(--font-weight-regular);
+
+  /* Small Text */
+  --small-text-size: var(--font-size-sm);
+  --small-text-line-height: var(--line-height-normal);
+  --small-text-font-weight: var(--font-weight-regular);
+
+  /* Large Text */
+  --large-text-size: var(--font-size-lg);
+  --large-text-line-height: var(--line-height-normal);
+  --large-text-font-weight: var(--font-weight-regular);
+}

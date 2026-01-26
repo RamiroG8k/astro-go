@@ -17,18 +17,18 @@ const { variant = 'contained' } = Astro.props;
 
 <style>
     button {
-        padding: 8px 16px;
-        border-radius: 4px;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        border-radius: var(--spacing-sm);
     }
 
     [data-style="contained"] {
-        background: #007bffA0;
-        border: 1px solid #ccc;
+        background: var(--color-brand-primary);
+        border: var(--space-px) solid var(--color-brand-primary-active);
     }
 
     [data-style="outlined"] {
         background: transparent;
-        border: 1px solid #ccc;
+        border: var(--space-px) solid var(--color-brand-primary);
     }
 
     [data-style="text"] {
