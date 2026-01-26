@@ -5,13 +5,15 @@
   "scripts": {
     "start:local": "astro dev --host",
     "start:prod": "astro build && astro preview --host",
-    "health:check": "astro check && astro info --copy"
+    "health:check": "astro check && astro info --copy",
+    "prepare": "husky"
   },
   "dependencies": {
     "astro": "^5.16.15"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "husky": "^9.1.7",
     "typescript": "^5.9.3"
   }
 }
