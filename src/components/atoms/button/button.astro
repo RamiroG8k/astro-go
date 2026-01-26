@@ -1,0 +1,38 @@
+---
+import type { Variant } from './types';
+
+interface Props {
+    variant?: Variant;
+    disabled?: boolean;
+}
+
+const { variant = 'contained' } = Astro.props;
+---
+
+<button type="button" data-style={variant} {...Astro.props}>
+    <slot>
+        Fallback content for button (Please place some content)
+    </slot>
+</button>
+
+<style>
+    button {
+        padding: 8px 16px;
+        border-radius: 4px;
+    }
+
+    [data-style="contained"] {
+        background: #007bffA0;
+        border: 1px solid #ccc;
+    }
+
+    [data-style="outlined"] {
+        background: transparent;
+        border: 1px solid #ccc;
+    }
+
+    [data-style="text"] {
+        background: transparent;
+        border: unset;
+    }
+</style>
