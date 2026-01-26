@@ -6,6 +6,8 @@
     "start:local": "astro dev --host",
     "start:prod": "astro build && astro preview --host",
     "health:check": "astro check && astro info --copy",
+    "test:file": "bun run test --file",
+    "test:coverage": "bun run test --coverage",
     "prepare": "husky"
   },
   "dependencies": {
