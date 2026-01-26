@@ -1,0 +1,19 @@
+---
+import type { BaseInput} from './types'
+
+interface Props extends BaseInput {}
+---
+
+<input {...Astro.props} />
+
+<style>
+    input {
+        padding: 8px 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    input:disabled {
+        opacity: 75%;
+    }
+</style>
