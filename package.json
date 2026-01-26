@@ -1,21 +1,24 @@
 {
-  "name": "astro-go",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "start:local": "astro dev --host",
-    "start:prod": "astro build && astro preview --host",
-    "health:check": "astro check && astro info --copy",
-    "test:file": "bun run test --file",
-    "test:coverage": "bun run test --coverage",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "astro": "^5.16.15"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.6",
-    "husky": "^9.1.7",
-    "typescript": "^5.9.3"
-  }
+	"name": "astro-go",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"start:local": "astro dev --host",
+		"start:prod": "astro build && astro preview --host",
+		"health:check": "astro check && astro info --copy",
+		"test:file": "bun run test --file",
+		"test:coverage": "bun run test --coverage",
+		"lint:check": "biome lint",
+		"lint:fix": "biome check --fix",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"astro": "^5.16.15"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@biomejs/biome": "2.3.13",
+		"husky": "^9.1.7",
+		"typescript": "^5.9.3"
+	}
 }

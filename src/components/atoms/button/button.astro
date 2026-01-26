@@ -1,12 +1,12 @@
 ---
-import type { Variant } from './types';
+import type { Variant } from "./types";
 
 interface Props {
-    variant?: Variant;
-    disabled?: boolean;
+	variant?: Variant;
+	disabled?: boolean;
 }
 
-const { variant = 'contained' } = Astro.props;
+const { variant = "contained" } = Astro.props;
 ---
 
 <button type="button" data-style={variant} {...Astro.props}>

@@ -60,6 +60,8 @@ All commands are run from the root of the project, from a terminal:
 | `bun run health:check`    | Run Astro type checking and copy system info     |
 | `bun run test:file`       | Run tests for specific files                     |
 | `bun run test:coverage`   | Run tests with coverage report                   |
+| `bun run lint:check`      | Check code for linting issues                    |
+| `bun run lint:fix`        | Automatically fix linting issues                 |
 | `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 
 ## 🛠️ Development Tools
@@ -67,9 +69,16 @@ All commands are run from the root of the project, from a terminal:
 This template includes several development tools to enhance your workflow:
 
 - **TypeScript**: For type safety and better developer experience
+- **Biome**: Fast linter and formatter for JavaScript, TypeScript, JSX and CSS
 - **Husky**: Git hooks for automated checks
 - **Astro Check**: Type checking for Astro projects
 
-## 👀 Want to learn more?
+### Linting Configuration
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project uses Biome for linting and formatting with the following configuration:
+
+- Tab indentation for consistency
+- Double quotes for strings
+- Recommended linting rules enabled
+- Automatic import organization
+- VCS integration with Git
