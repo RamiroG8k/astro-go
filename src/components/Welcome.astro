@@ -1,6 +1,7 @@
 ---
 import Button from "./atoms/button/button.astro";
 import Input from "./atoms/input/input.astro";
+import Link from "./atoms/link/link.astro";
 import Text from "./atoms/text/text.astro";
 import Background from "./Background.astro";
 ---
@@ -28,6 +29,10 @@ import Background from "./Background.astro";
     	<Text as="span">Welcome to Astro!</Text>
     	<Text as="blockquote">Welcome to Astro!</Text>
     	<Text as="em">Welcome to Astro!</Text>
+
+        <Link to="/">Primary link to home</Link>
+        <Link href="https://astro.build">External link to Astro</Link>
+        <Link variant="subtle" href="https://astro.build">External link to Astro</Link>
     </main>
 </div>
 

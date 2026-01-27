@@ -1,14 +1,14 @@
 ---
 import type { ValidTag } from "./types";
 
-interface Props {
+export interface Props {
 	as?: ValidTag;
 }
 
-const { as: Element } = Astro.props;
+const { as: Element = "p", ...props } = Astro.props;
 ---
 
-<Element data-atom="text" {...Astro.props}>
+<Element data-atom="text" {...props}>
     <slot>
         Fallback content for text (Please place some content)
     </slot>

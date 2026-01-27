@@ -1,0 +1,59 @@
+---
+import type { Polymorphic } from 'astro/types';
+import type { LinkProps } from './types';
+
+export type Props = Polymorphic<{ as: 'a' }> & LinkProps;
+
+const {
+  variant = 'primary',
+  to,
+  href,
+  ...props
+} = Astro.props;
+
+const finalHref = to || href;
+const isExternal = href?.startsWith('http');
+
+if (!finalHref) {
+  throw new Error('[Link] requires either a `to` or `href` prop.');
+}
+
+if (to && href) {
+  throw new Error('[Link] cannot have both `to` and `href` props.');
+}
+---
+
+<a
+  href={finalHref}
+  data-atom="link"
+  data-variant={variant}
+  {...isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+  {...props}
+>
+  <slot />
+</a>
+
+<style>
+    [data-atom="link"] {
+        font-family: var(--font-family-serif);
+        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    [data-variant="primary"] {
+        color: var(--color-brand-primary);
+    }
+
+    [data-variant="primary"]:hover {
+        color: var(--color-brand-primary-hover);
+    }
+
+    [data-variant="subtle"] {
+        color: var(--color-subtle);
+    }
+
+    [data-variant="subtle"]:hover {
+        color: var(--color-content);
+    }
+</style>
