@@ -1,19 +1,4 @@
+@import "./normalize.css";
 @import "./tokens/colors.css";
 @import "./tokens/spacing.css";
 @import "./tokens/typography.css";
-
-/* Base Reset & Normalization */
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-html,
-body {
-	margin: 0;
-	width: 100%;
-	height: 100%;
-}
